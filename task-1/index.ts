@@ -5,11 +5,13 @@ import fetch from "node-fetch";
  * Данные что приходят с сервера нужно типизировать.
  */
 
-
 /**
  * Проверяет существование пользователя на GH
  * @param username - юзернейм
  */
-export function isUserExist(username: string): Promise<boolean>{
+export async function isUserExist(username: string): Promise<boolean> {
+    const url = `https://api.github.com/users/${username}`;
+    const answer = await fetch(url);
 
+    return answer.ok;
 }
