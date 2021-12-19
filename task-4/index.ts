@@ -5,6 +5,19 @@
  * давай переведем их на русский))
  */
 
-export function translateCatFact(fact: CatFactResponseModel): Promise<TranslateResponseModel>{
+import fetch from "node-fetch";
+import {CatFactResponseModel, TranslateRequestBody, TranslateRequestModel, TranslateResponseModel} from "../task-2";
 
+export function translateCatFact(fact: CatFactResponseModel): Promise<TranslateResponseModel> {
+    const requestBody: TranslateRequestBody = {
+        format: "text", q: fact.fact, source: "en", target: "ru"
+    }
+    const request: TranslateRequestModel = {
+        method: "Post",
+        body: JSON.stringify(requestBody),
+        headers: {"Content-Type": "application/json"},
+    };
+
+    return fetch('https://trans.zillyhuhn.com/translate', request)
+        .then((response) => response.json() as unknown as TranslateResponseModel);
 }

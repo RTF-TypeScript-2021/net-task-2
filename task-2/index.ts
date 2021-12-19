@@ -11,11 +11,24 @@
  * TranslateResponseModel - Ответ с сервера
  */
 
-export interface CatFactResponseModel{
+export interface CatFactResponseModel {
+    fact: string;
+    length: number;
 }
 
-export interface TranslateRequestModel{
+export interface TranslateRequestBody {
+    q: string,
+    source: string,
+    target: string,
+    format: string
 }
 
-export interface TranslateResponseModel{
+export interface TranslateRequestModel {
+    method: string;
+    body: string;
+    headers: { [key: string]: string }
+}
+
+export interface TranslateResponseModel {
+    translatedText: string;
 }
