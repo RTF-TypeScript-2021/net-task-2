@@ -13,7 +13,7 @@
 
 export interface CatFactResponseModel {
     fact: string,
-    length: number;
+    length: number
 }
 
 export interface TranslateRequestModel {
@@ -23,5 +23,5 @@ export interface TranslateRequestModel {
 }
 
 export interface TranslateResponseModel {
-    translatedText: string;
+    translatedText: string
 }
