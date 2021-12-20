@@ -1,3 +1,4 @@
+
 /**
  * Задание 2
  * Если кратко то вам нужно будет описать модели для данных отправляемых/получаемых со следующих источников:
@@ -12,10 +13,18 @@
  */
 
 export interface CatFactResponseModel{
+    fact: string,
+    length: number
 }
 
 export interface TranslateRequestModel{
+    q: string,
+	source: string,
+	target: string,
+	format?: "text" | "html",
+    api_key?: string
 }
 
 export interface TranslateResponseModel{
+    translatedText: string
 }

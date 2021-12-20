@@ -1,3 +1,4 @@
+import {CatFactResponseModel, TranslateResponseModel, TranslateRequestModel} from "../task-2";
 /**
  * Задание 4
  *
@@ -5,6 +6,21 @@
  * давай переведем их на русский))
  */
 
-export function translateCatFact(fact: CatFactResponseModel): Promise<TranslateResponseModel>{
+export async function translateCatFact(fact: CatFactResponseModel): Promise<TranslateResponseModel>{
+    const url = "https://trans.zillyhuhn.com/translate";
+    const requestMod: TranslateRequestModel = {
+        q: fact.fact,
+        source: "en",
+		target: "ru",
+		format: "text"
+    }
+    const res = await fetch(url, {
+	method: "POST",
+	body: JSON.stringify(requestMod),
+	headers: { "Content-Type": "application/json" }
+});
 
+
+return await res.json() as TranslateResponseModel;
 }
+
