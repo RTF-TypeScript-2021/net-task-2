@@ -6,8 +6,9 @@
 import {CatFactResponseModel} from "../task-2";
 import fetch from "node-fetch";
 
-export function getCatFact(): Promise<CatFactResponseModel> {
-    const url = "https://catfact.ninja/fact";
+export async function getCatFact(): Promise<CatFactResponseModel> {
+    const url = 'https://catfact.ninja/fact';
+    const response = await fetch(url);
     
-    return await fetch(url).then(response => response.json() as CatFactResponseModel);
+    return await response.json() as CatFactResponseModel;
 }
