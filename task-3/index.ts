@@ -5,6 +5,7 @@
  */
 
 import { CatFactResponseModel } from "../task-2";
+import fetch from "node-fetch";
 
 export async function getCatFact(): Promise<CatFactResponseModel>{
     const url = 'https://catfact.ninja/fact';
