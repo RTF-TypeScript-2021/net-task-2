@@ -9,9 +9,9 @@ import { CatFactResponseModel } from "../task-2";
 export async function getCatFact(): Promise<CatFactResponseModel>{
     const url = 'https://catfact.ninja/fact';
     const response = await fetch(url);
-
     if (!response.ok) {
-        throw new Error()
+        return await response.json() as CatFactResponseModel;
     }
-    return await response.json() as CatFactResponseModel;
+    
+    throw new Error()
 }
