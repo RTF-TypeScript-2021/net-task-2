@@ -1,3 +1,4 @@
+import fetch from "node-fetch";
 import {CatFactResponseModel, TranslateResponseModel, TranslateRequestModel} from "../task-2";
 /**
  * Задание 4
@@ -14,7 +15,7 @@ export async function translateCatFact(fact: CatFactResponseModel): Promise<Tran
 		target: "ru",
 		format: "text"
     }
-    const res = await fetch(url, {
+    let res = await fetch(url, {
 	method: "POST",
 	body: JSON.stringify(requestMod),
 	headers: { "Content-Type": "application/json" }
