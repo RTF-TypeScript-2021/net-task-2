@@ -19,7 +19,7 @@ export interface CatFactResponseModel{
 export interface TranslateRequestModel{
   method: string;
   body: string;
-  headers: {[key: string]: string}};
+  headers: {[key: string]: string}
 }
 
 export interface TranslateResponseModel{
