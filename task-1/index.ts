@@ -11,10 +11,9 @@ import fetch from "node-fetch";
  * @param username - юзернейм
  */
 export async function isUserExist(username: string): Promise<boolean>{
-    let url = `https://api.github.com/user/${username}`
-    return await fetch(url).then(result => {
-        return result.ok;
-    })
+    const url = `https://api.github.com/users/${username}`
+    const response = await fetch(url)
+    return response.ok
 }
 
 

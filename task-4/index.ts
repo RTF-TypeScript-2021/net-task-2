@@ -8,12 +8,17 @@ import fetch from "node-fetch";
  */
 
 export async function translateCatFact(fact: CatFactResponseModel): Promise<TranslateResponseModel>{
-    let request = {
+    const url = "https://trans.zillyhuhn.com/translate";
+    const requestBody = {
         q: "w",
         source: "auto",
         target: "ru",
         format: "text"
     } as TranslateRequestModel
-    let response = await fetch(String(request))
-    return response.text() as Promise<TranslateResponseModel>
+    const response = await fetch(url, {
+        method: "POST",
+        body: JSON.stringify(requestBody),
+        headers: {"Content-Type": "application/json"}
+    })
+    return await response.json() as TranslateResponseModel
 }
