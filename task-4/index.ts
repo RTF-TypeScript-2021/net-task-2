@@ -6,6 +6,7 @@
  */
 
 import { CatFactResponseModel, TranslateRequestModel, TranslateResponseModel } from "../task-2";
+import fetch from "node-fetch";
 
 export async function translateCatFact(fact: CatFactResponseModel): Promise<TranslateResponseModel>{
     const url = "https://trans.zillyhuhn.com/translate";
