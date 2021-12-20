@@ -1,3 +1,5 @@
+import {TranslateRequestModel, CatFactResponseModel, TranslateResponseModel} from "../task-2";
+import fetch from "node-fetch";
 /**
  * Задание 4
  *
@@ -5,6 +7,13 @@
  * давай переведем их на русский))
  */
 
-export function translateCatFact(fact: CatFactResponseModel): Promise<TranslateResponseModel>{
-
+export async function translateCatFact(fact: CatFactResponseModel): Promise<TranslateResponseModel>{
+    let request = {
+        q: "w",
+        source: "auto",
+        target: "ru",
+        format: "text"
+    } as TranslateRequestModel
+    let response = await fetch(String(request))
+    return response.text() as Promise<TranslateResponseModel>
 }
