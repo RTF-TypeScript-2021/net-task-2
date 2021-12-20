@@ -12,10 +12,16 @@
  */
 
 export interface CatFactResponseModel{
+  fact: string;
+  length: number;
 }
 
 export interface TranslateRequestModel{
+  method: string;
+  body: string;
+  headers: {[key: string]: string}};
 }
 
 export interface TranslateResponseModel{
+  translatedText: string;
 }
