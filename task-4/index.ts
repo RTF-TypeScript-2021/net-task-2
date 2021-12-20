@@ -20,9 +20,9 @@ export async function translateCatFact(fact: CatFactResponseModel): Promise<Tran
         headers: { "Content-Type": "application/json" }
     }
     const response = await fetch(url, request);
-    if (!response.ok) {
-        throw new Error();
+    if (response.ok) {
+        return await response.json() as TranslateResponseModel;
     }
-    
-    return await response.json() as TranslateResponseModel;
+
+    throw new Error();
 }
