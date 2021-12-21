@@ -4,23 +4,17 @@
  * Так как мы получаем факты о котиках на непонятном языке,
  * давай переведем их на русский))
  */
-import fetch from "node-fetch";
-import {
-    CatFactResponseModel,
-    Language,
-    TranslateRequestModel,
-    TranslateResponseModel,
-    TranslateRequestBodyModel
-} from "../task-2";
+import fetch, {RequestInit} from "node-fetch";
+import {CatFactResponseModel, Language, TranslateRequestModel, TranslateResponseModel} from "../task-2";
 
 export async function translateCatFact(fact: CatFactResponseModel): Promise<TranslateResponseModel> {
     const url = "https://trans.zillyhuhn.com/translate";
-    const body: TranslateRequestBodyModel = {
+    const body: TranslateRequestModel = {
         q: fact.fact,
         source: Language.English,
         target: Language.Russian
     };
-    const rData: TranslateRequestModel = {
+    const rData: RequestInit = {
         method: 'POST',
         body: JSON.stringify(body),
         headers: {"Content-Type": "application/json"},

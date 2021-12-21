@@ -44,18 +44,12 @@ export enum Language {
 }
 
 
-export interface TranslateRequestBodyModel {
+export interface TranslateRequestModel {
     q: string;
     source: Language;
     target: Language;
     format?: 'text' | 'html';
     api_key?: string;
-}
-
-export interface TranslateRequestModel extends RequestInit {
-    method: 'POST';
-    body: string;
-    headers: { 'Content-Type': 'application/json', [key: string]: string };
 }
 
 export interface TranslateResponseModel {
