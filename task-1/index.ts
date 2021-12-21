@@ -11,10 +11,14 @@ import fetch from "node-fetch";
  * Проверяет существование пользователя на GH
  * @param username - юзернейм
  */
-export async function isUserExist(username: string): Promise<boolean> {
+
+
+export async function isUserExist<T>(username: string): Promise<boolean> {
     let url = `https://api.github.com/users/${username}`;
-    let res = await fetch(url);
+    const res= await fetch(url);
+    const parsedBody = await res.json();
     return res.ok;
+    
 }
 
 
