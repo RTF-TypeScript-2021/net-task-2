@@ -19,5 +19,5 @@ export function translateCatFact(fact: CatFactResponseModel): Promise<TranslateR
     };
 
     return fetch('https://trans.zillyhuhn.com/translate', request)
-        .then((response) => response.json() as unknown as TranslateResponseModel);
+        .then((response) => response.json() as TranslateResponseModel);
 }
